@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks:
   - minDamage: 50
-    maxDamaage: 100
+    maxDamage: 0
     attackTime: 2
     animationName: Claws Attack
-    soundName: 
+    soundName: Sylveon_attack1
     particlesPrefab: {fileID: 0}
   - minDamage: 30
-    maxDamaage: 60
+    maxDamage: 0
     attackTime: 3
     animationName: Attack
-    soundName: 
+    soundName: Sylveon_attack2
     particlesPrefab: {fileID: 0}
