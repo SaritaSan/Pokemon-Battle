@@ -18,16 +18,25 @@ MonoBehaviour:
     attackTime: 2
     animationName: Flying Attack
     soundName: Zapdos_attack1
-    particlesPrefab: {fileID: 0}
+    hitParticlesPrefab: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd,
+      type: 3}
+    particlesPrefab: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd,
+      type: 3}
   - minDamage: 30
     maxDamage: 0
     attackTime: 3
     animationName: Zapdos
     soundName: Zapdos_attack2
-    particlesPrefab: {fileID: 0}
+    hitParticlesPrefab: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd,
+      type: 3}
+    particlesPrefab: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753,
+      type: 3}
   - minDamage: 40
     maxDamage: 0
     attackTime: 4
     animationName: Jump Attack
     soundName: Zapdos_attack3
-    particlesPrefab: {fileID: 0}
+    hitParticlesPrefab: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd,
+      type: 3}
+    particlesPrefab: {fileID: 9027514048236820045, guid: effb650189dc5714e9e9801b1cfb3991,
+      type: 3}
