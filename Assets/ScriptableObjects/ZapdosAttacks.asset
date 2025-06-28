@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ZapdosAttacks
   m_EditorClassIdentifier: 
   attacks:
-  - minDamage: 50
+  - attackName: Fiery Fury
+    minDamage: 50
     maxDamage: 0
     attackTime: 2
     animationName: Flying Attack
@@ -22,7 +23,8 @@ MonoBehaviour:
       type: 3}
     particlesPrefab: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd,
       type: 3}
-  - minDamage: 30
+  - attackName: Twilight Sunbean
+    minDamage: 30
     maxDamage: 0
     attackTime: 3
     animationName: Zapdos
@@ -31,7 +33,8 @@ MonoBehaviour:
       type: 3}
     particlesPrefab: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753,
       type: 3}
-  - minDamage: 40
+  - attackName: Meteor Shower
+    minDamage: 40
     maxDamage: 0
     attackTime: 4
     animationName: Jump Attack
