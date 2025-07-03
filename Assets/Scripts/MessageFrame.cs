@@ -1,14 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Drawing.Text;
 
 public class MessageFrame : MonoBehaviour
 {
     [SerializeField]
     private Text _text;
-    [SerializeField]
-    private Animator _animator;
     [SerializeField]
     private float _timeBetweenLetters = 0.05f;
     [SerializeField]
@@ -16,7 +13,8 @@ public class MessageFrame : MonoBehaviour
     [SerializeField]
     private string _showAnimationName = "ShowMessageFrame";
     [SerializeField]
-    private string _hideAnimationName = "HidfeMessageFrame";
+    private string _hideAnimationName = "HideMessageFrame";
+    private Animator _animator;
     private string _currentText;
     private Coroutine _typingCoroutine;
     public static MessageFrame Instance { get; private set; }
@@ -30,6 +28,7 @@ public class MessageFrame : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        _animator = GetComponent<Animator>();
     }
     public void ShowMessage(string message)
     {
@@ -38,6 +37,7 @@ public class MessageFrame : MonoBehaviour
         _text.text = "";
         _animator.Play(_showAnimationName, 0, 0f);
         _typingCoroutine = StartCoroutine(TypeMessage());
+        SoundManager.instance.Play("ApareceText");
     }
     private IEnumerator TypeMessage()
     {
@@ -45,6 +45,8 @@ public class MessageFrame : MonoBehaviour
         {
             _text.text += _currentText[i];
             yield return new WaitForSeconds(_timeBetweenLetters);
+            SoundManager.instance.Play("Teclear");
+
         }
         yield return new WaitForSeconds(_timeToHide);
         _animator.Play(_hideAnimationName, 0, 0f);
@@ -62,5 +64,7 @@ public class MessageFrame : MonoBehaviour
         StopCoroutine();
         _animator.Play(_hideAnimationName, 0, 0f);
         _text.text = "";
+        SoundManager.instance.Play("DesapareceText");
+
     }
 }

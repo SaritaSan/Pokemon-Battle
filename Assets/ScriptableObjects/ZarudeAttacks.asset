@@ -10,36 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edcb57d879dca6b448e927c9d35852e5, type: 3}
-  m_Name: ZapdosAttacks
+  m_Name: ZarudeAttacks
   m_EditorClassIdentifier: 
   attacks:
-  - attackName: Fiery Fury
+  - attackName: Blowzar
     minDamage: 50
     maxDamage: 0
     attackTime: 2
-    animationName: Flying Attack
-    soundName: Zapdos_attack1
+    animationName: Blow
+    soundName: Zarude_Blow
     hitParticlesPrefab: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c,
       type: 3}
-    particlesPrefab: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b,
+    particlesPrefab: {fileID: 8791802859087666345, guid: ae07f2a45f14a82428409cfe410e6002,
       type: 3}
-  - attackName: Meteor Shower
-    minDamage: 40
-    maxDamage: 0
-    attackTime: 4
-    animationName: Jump Attack
-    soundName: Zapdos_attack3
-    hitParticlesPrefab: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c,
-      type: 3}
-    particlesPrefab: {fileID: 9027514048236820045, guid: effb650189dc5714e9e9801b1cfb3991,
-      type: 3}
-  - attackName: Twilight Sunbean
+  - attackName: Powerzar
     minDamage: 30
     maxDamage: 0
     attackTime: 3
-    animationName: Zapdos
-    soundName: Zapdos_attack2
+    animationName: Powers
+    soundName: Zarude_Power
     hitParticlesPrefab: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c,
       type: 3}
-    particlesPrefab: {fileID: 1206498299807332555, guid: af6c1e3f046eecd4d81330aeb285600f,
+    particlesPrefab: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5,
+      type: 3}
+  - attackName: Roarzar
+    minDamage: 40
+    maxDamage: 0
+    attackTime: 4
+    animationName: Roar
+    soundName: Zarude_Roar
+    hitParticlesPrefab: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c,
+      type: 3}
+    particlesPrefab: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5,
       type: 3}

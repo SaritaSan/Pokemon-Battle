@@ -22,7 +22,7 @@ public class Fighter : MonoBehaviour
     public string WinAnimationName => _winAnimationName;
     [SerializeField]
     private string _winSoundName = "WindSound";
-    public string WindSoundName => _winSoundName;
+    public string WinSoundName => _winSoundName;
     public void InitializeFighter()
     {
         _onFighterInitialized?.Invoke();

@@ -14,32 +14,39 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private UnityEvent _onBattleStarted;
     [SerializeField]
-    private UnityEvent _onFightersReady;
-
-
+    private UnityEvent _OnFighter;
+    [SerializeField]
+    private UnityEvent _NoFighter;
     private List<Fighter> _fighters = new List<Fighter>();
     private Coroutine _battleCoroutine;
     private DamageTarget _damageTarget = new DamageTarget();
-
     public void AddFighter(Fighter fighter)
     {
-        MessageFrame.Instance.ShowMessage($"{fighter.Name} has joined the battle");
+        MessageFrame.Instance.ShowMessage($"{fighter.Name} has joined the battle!");
         _fighters.Add(fighter);
         CheckFighters();
+        _OnFighter?.Invoke();
     }
-
     public void RemoveFighter(Fighter fighter)
     {
         _fighters.Remove(fighter);
-        if (_fighters.Count < 2)
+        if (_fighters.Count < 1)
         {
-            if (_battleCoroutine != null)
+            _NoFighter?.Invoke();
+        }
+        if (_fighters.Count < 2)
+            {
+                StopBattle();
+            }
+    }
+    private void StopBattle()
+    {
+        if (_battleCoroutine != null)
             {
                 StopCoroutine(_battleCoroutine);
                 _battleCoroutine = null;
             }
             _onBattleStopped?.Invoke();
-        }
     }
     private void CheckFighters()
     {
@@ -47,17 +54,20 @@ public class BattleManager : MonoBehaviour
         {
             return;
         }
-        _onFightersReady?.Invoke();
+        StopBattle();
+        InitializeFighters();
         _onBattleStarted?.Invoke();
     }
-    public void StartBattle()
+    private void InitializeFighters()
     {
         foreach (Fighter fighter in _fighters)
         {
             fighter.InitializeFighter();
         }
+    }
+    public void StartBattle()
+    {
         _battleCoroutine = StartCoroutine(BattleCoroutine());
-
     }
     private IEnumerator BattleCoroutine()
     {
@@ -77,18 +87,15 @@ public class BattleManager : MonoBehaviour
             attacker.CharacterAnimator.Play(attack.animationName);
             GameObject attackParticles = Instantiate(attack.particlesPrefab, attacker.transform.position, Quaternion.identity);
             attackParticles.transform.SetParent(attacker.transform);
-            Instantiate(attack.particlesPrefab, attacker.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(attack.attackTime);
             float damage = Random.Range(attack.minDamage, attack.maxDamage);
-            GameObject defenderParticles = Instantiate(attack.hitParticlesPrefab, defender.transform.position, Quaternion.identity);
-            defenderParticles.transform.SetParent(defender.transform);
-            Instantiate(attack.hitParticlesPrefab, defender.transform.position, Quaternion.identity);
+            GameObject defendParticles = Instantiate(attack.hitParticlesPrefab, defender.transform.position, Quaternion.identity);
+            defendParticles.transform.SetParent(defender.transform);
             _damageTarget.SetDamageTarget(damage, defender.transform);
             defender.Health.TakeDamage(_damageTarget);
             if (defender.Health.CurrentHealth <= 0)
             {
                 _fighters.Remove(defender);
-
             }
             yield return new WaitForSeconds(1f);
         }
@@ -98,7 +105,7 @@ public class BattleManager : MonoBehaviour
     {
         winner.transform.LookAt(Camera.main.transform);
         MessageFrame.Instance.ShowMessage($"{winner.Name} wins the battle!");
-        SoundManager.instance.Play(winner.WinAnimationName);
+        SoundManager.instance.Play(winner.WinSoundName);
         winner.CharacterAnimator.Play(winner.WinAnimationName);
         _onBattleFinished?.Invoke();
     }
