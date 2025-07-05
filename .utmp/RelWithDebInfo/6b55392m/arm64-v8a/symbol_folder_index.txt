@@ -1,0 +1,1 @@
+C:\Users\Equipo 25\Pictures\Mio\Unity\Pokemon Battle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\6b55392m\obj\arm64-v8a

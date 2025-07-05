@@ -1,0 +1,2 @@
+C:\Users\Equipo 25\Pictures\Mio\Unity\Pokemon Battle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\Equipo 25\Pictures\Mio\Unity\Pokemon Battle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
